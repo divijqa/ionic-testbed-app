@@ -1,6 +1,5 @@
 <template>
   <ion-page>
-    <!-- App Bar Header Layout -->
     <ion-header :translucent="true">
       <ion-toolbar color="dark">
         <ion-title data-testid="dashboard-header-title">BizOps Portal</ion-title>
@@ -13,14 +12,6 @@
     </ion-header>
 
     <ion-content :fullscreen="true" class="ion-padding">
-      <!-- Hidden Header for iOS Collapsing Toolbar Effect -->
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">BizOps Portal</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <!-- Section 1: Quick Business Metric Cards -->
       <div class="metrics-grid">
         <ion-card color="primary" data-testid="metric-card-revenue">
           <ion-card-header>
@@ -37,11 +28,9 @@
         </ion-card>
       </div>
 
-      <!-- Section 2: Interactive Operational Grid -->
       <h3 class="section-title">Core Modules</h3>
-      
+
       <ion-list lines="none" data-testid="modules-action-list">
-        <!-- Module Link 1 -->
         <ion-item class="custom-list-item" button router-link="/data-list" data-testid="module-item-inventory">
           <ion-icon slot="start" :icon="cubeOutline" color="primary"></ion-icon>
           <ion-label>
@@ -51,8 +40,7 @@
           <ion-icon slot="end" :icon="chevronForwardOutline" color="medium"></ion-icon>
         </ion-item>
 
-        <!-- Module Link 2 (Placeholder) -->
-        <ion-item class="custom-list-item" button data-testid="module-item-clients">
+        <ion-item class="custom-list-item" button router-link="/clients" data-testid="module-item-clients">
           <ion-icon slot="start" :icon="peopleOutline" color="success"></ion-icon>
           <ion-label>
             <h2>Client Accounts</h2>
@@ -62,7 +50,6 @@
         </ion-item>
       </ion-list>
 
-      <!-- Section 3: Platform Health Indicator -->
       <div class="ion-text-center ion-padding-top">
         <ion-chip color="medium" data-testid="system-health-status">
           <div class="pulse-indicator"></div>
@@ -74,18 +61,15 @@
 </template>
 
 <script setup>
-import { 
-  IonContent, IonHeader, IonPage, IonTitle, IonToolbar, 
+import {
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
   IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle,
   IonList, IonItem, IonLabel, IonIcon, IonButtons, IonButton, IonChip
 } from '@ionic/vue';
-import { 
-  personCircleOutline, cubeOutline, peopleOutline, chevronForwardOutline 
-} from 'ionicons/icons';
+import { personCircleOutline, cubeOutline, peopleOutline, chevronForwardOutline } from 'ionicons/icons';
 </script>
 
 <style scoped>
-/* Clean layout spacing styles */
 .metrics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -112,14 +96,12 @@ import {
   padding-left: 8px;
   margin-top: 24px;
   margin-bottom: 12px;
-  color: var(--ion-color-dark);
 }
 
 .custom-list-item {
   --background: var(--ion-color-light);
   --border-radius: 12px;
   margin-bottom: 10px;
-  padding: 4px 0;
 }
 
 .pulse-indicator {
@@ -128,13 +110,5 @@ import {
   background-color: var(--ion-color-success);
   border-radius: 50%;
   margin-right: 8px;
-  box-shadow: 0 0 0 0 rgba(45, 211, 111, 0.7);
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 211, 111, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(45, 211, 111, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 211, 111, 0); }
 }
 </style>
