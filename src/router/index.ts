@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import DataListPage from '../views/DataListPage.vue';
+import ClientsPage from '../views/ClientsPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,6 +18,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/data-list',
     name: 'DataList',
     component: DataListPage
+  },
+  {
+    path: '/clients',
+    name: 'Clients',
+    component: ClientsPage
   }
 ];
 
