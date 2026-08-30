@@ -1,0 +1,7 @@
+{
+  "name": "ionic-testbed-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
